@@ -1,0 +1,177 @@
+/* Página NOSOTROS */
+
+.reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ===== ¿QUIÉNES SOMOS? ===== */
+.qs-hero {
+    background: linear-gradient(135deg, #0d8f86, #27c9b2);
+    padding: 60px 6% 90px;
+    text-align: center;
+    position: relative;
+}
+
+.qs-pildora {
+    display: inline-block;
+    max-width: 760px;
+    width: 100%;
+    padding: 35px 20px;
+    border: 3px solid rgba(255,255,255,0.7);
+    border-radius: 70px;
+    color: white;
+    background: rgba(255,255,255,0.12);
+}
+
+.qs-pildora h1 { font-size: 40px; }
+.qs-pildora p { margin-top: 10px; opacity: 0.9; }
+
+.ola { position: absolute; bottom: -1px; left: 0; width: 100%; height: 50px; display: block; }
+
+/* ===== SONRISAS: MISIÓN / VISIÓN / VALORES ===== */
+.sonrisas { padding: 40px 8% 80px; text-align: center; background: #fff; }
+
+.mvv {
+    display: grid;
+    grid-template-columns: 1fr 260px 1fr;
+    grid-template-areas: "mision foto vision" ". valores .";
+    gap: 30px 40px;
+    align-items: center;
+    margin-top: 40px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mvv-mision { grid-area: mision; text-align: right; }
+.mvv-vision { grid-area: vision; text-align: left; }
+.mvv-valores { grid-area: valores; text-align: center; }
+.mvv-foto { grid-area: foto; }
+
+.mvv h3 { color: #139c91; font-size: 22px; margin-bottom: 8px; }
+.mvv p, .mvv li { color: #69727d; line-height: 1.6; font-size: 15px; }
+.mvv ul { list-style: none; }
+
+.foto-circulo {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid #e2f7f4;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+/* ===== HISTORIA (alto del viewport) ===== */
+.historia {
+    min-height: 100vh;
+    min-height: 100svh;
+    background: #f3f8f8;
+    padding: 70px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.h-contenido {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+    align-items: center;
+    max-width: 1000px;
+    margin: 40px auto 0;
+    width: 100%;
+}
+
+/* círculo con imágenes que se deslizan horizontalmente */
+.h-circulo {
+    width: min(100%, 380px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+    border: 6px solid white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.h-pista { display: flex; height: 100%; transition: transform 0.7s ease; }
+.h-pista img { min-width: 100%; height: 100%; object-fit: cover; }
+
+.h-info { text-align: left; }
+
+/* textos apilados con transición horizontal */
+.h-paneles { display: grid; min-height: 170px; }
+
+.h-panel {
+    grid-area: 1 / 1;
+    opacity: 0;
+    transform: translateX(60px);
+    transition: 0.6s ease;
+    pointer-events: none;
+}
+
+.h-panel.previo { transform: translateX(-60px); }
+.h-panel.activo { opacity: 1; transform: none; pointer-events: auto; }
+
+.h-panel h3 { font-size: 30px; color: #139c91; margin-bottom: 10px; }
+.h-panel p { color: #69727d; line-height: 1.7; }
+
+/* lista con flechas */
+.h-pasos { display: flex; flex-direction: column; gap: 8px; margin: 22px 0; }
+
+.h-paso {
+    text-align: left;
+    background: white;
+    border: 1px solid #e5e9ed;
+    border-radius: 25px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #3f4852;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.h-paso::before { content: "→ "; color: #18b5a5; }
+.h-paso.activo, .h-paso:hover { background: #109c91; color: white; border-color: #109c91; }
+.h-paso.activo::before, .h-paso:hover::before { color: white; }
+
+.h-botones { display: flex; align-items: center; gap: 12px; }
+
+.h-botones button {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 0;
+    background: #109c91;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.h-botones button:hover { background: #087f76; }
+
+.h-barra { flex: 1; height: 5px; background: #d6e4e3; border-radius: 5px; overflow: hidden; }
+.h-barra span { display: block; height: 100%; width: 0; background: #18b5a5; transition: width 0.6s ease; }
+
+/* ===== MÓVIL ===== */
+@media (max-width: 800px) {
+    .qs-hero { padding: 40px 5% 70px; }
+    .qs-pildora { border-radius: 40px; padding: 25px 15px; }
+    .qs-pildora h1 { font-size: 28px; }
+
+    .mvv {
+        grid-template-columns: 1fr;
+        grid-template-areas: "foto" "mision" "vision" "valores";
+    }
+    .mvv-mision, .mvv-vision { text-align: center; }
+    .foto-circulo { width: 200px; height: 200px; margin: auto; display: block; }
+
+    .historia { padding: 60px 6%; }
+    .h-contenido { grid-template-columns: 1fr; gap: 30px; }
+    .h-circulo { width: min(70vw, 280px); }
+    .h-info { text-align: center; }
+    .h-paneles { min-height: 190px; }
+    .h-paso { text-align: center; }
+}

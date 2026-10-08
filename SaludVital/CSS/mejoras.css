@@ -1,0 +1,99 @@
+/* Se carga DESPUÉS de styles.css: no modifica tu código original, solo lo mejora */
+
+html { scroll-padding-top: 70px; }
+img { max-width: 100%; }
+
+.header { position: sticky; top: 0; }
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    font-size: 30px;
+    line-height: 1;
+    color: #139c91;
+    cursor: pointer;
+}
+
+.menu a.actual { color: #139c91; border-bottom: 2px solid #139c91; }
+.solo-movil { display: none; }
+
+/* ===== REDES SOCIALES (pie de página) ===== */
+footer .redes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+footer .redes a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: 0.3s;
+}
+
+footer .redes a:hover { background: #109c91; border-color: #109c91; }
+
+footer .redes-titulo {
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    color: #8fa0ad;
+}
+
+/* ===== TABLET / CELULAR ===== */
+@media (max-width: 800px) {
+
+    .header {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 10px 15px;
+        gap: 0;
+    }
+
+    .menu-toggle { display: block; }
+    .header > .boton-cita { display: none; }
+
+    .menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        order: 3;
+        margin-top: 10px;
+    }
+
+    .menu.abierto { display: flex; }
+
+    .menu a {
+        padding: 13px 0;
+        text-align: center;
+        border-top: 1px solid #eef1f3;
+    }
+
+    .solo-movil {
+        display: block;
+        color: #109c91 !important;
+    }
+
+    .nosotros, .servicios, .contacto { padding: 55px 6%; }
+    .nosotros h2, .servicios h2, .contacto h2 { font-size: 26px; }
+    .contacto p { word-break: break-word; }
+}
+
+@media (max-width: 480px) {
+    .carrusel { height: 400px; }
+    .texto-inicio { width: 88%; }
+    .texto-inicio h1 { font-size: 25px; }
+    .texto-inicio p { font-size: 14px; }
+    .etiqueta { font-size: 10px; padding: 5px 12px; }
+    .tarjeta, .servicio { width: 100%; padding: 22px; }
+    .boton-contacto { display: block; width: 100%; max-width: 280px; margin-left: auto; margin-right: auto; }
+}
